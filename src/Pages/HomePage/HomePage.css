@@ -1,0 +1,18 @@
+.containerHomePage {
+  height: 100%;
+  max-height: none;
+  max-width: none;
+}
+.containerJobCard {
+  position: relative;
+  padding: 32px;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+  z-index: 2;
+}
+.containerNumPage {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

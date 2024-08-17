@@ -1,0 +1,26 @@
+.containerLogIn {
+  max-width: 470px;
+  text-align: center;
+  background-color: #818181;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 14px;
+  z-index: 3;
+}
+
+.titleLogInBox {
+  font-weight: 600;
+  font-family: "Roboto", Verdana, Geneva, Tahoma, sans-serif;
+  color: #fff;
+  letter-spacing: 0.5rem;
+  text-align: center;
+}
+
+.rememberContainer {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rememberBox {
+  color: #fff;
+}

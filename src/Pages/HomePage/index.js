@@ -32,42 +32,21 @@ function HomePage() {
 
   return (
     <ThemeProvider theme={theme}>
-      <div
-        style={{
-          height: "100%",
-          maxHeight: "false",
-          maxWidth: "false",
-        }}
-      >
+      <div className="containerHomePage">
         <SearchAppBar setModeUI={setModeUI} />
-        <div
-          style={{
-            position: "relative",
-            padding: 32,
-            display: "flex",
-            gap: 24,
-            flexWrap: "wrap",
-            justifyContent: "center",
-            zIndex: 2,
-          }}
-        >
+        <div className="containerJobCard">
           {records.map((job) => (
             <JobCard key={job.id} job={job} />
           ))}
         </div>
         <div
+          className="containerNumPage"
           style={{
             display: "flex",
             justifyContent: "center",
           }}
         >
-          <Stack
-            spacing={2}
-            style={{
-              marginTop: "10px",
-              marginBottom: "10px",
-            }}
-          >
+          <Stack spacing={2}>
             <Pagination
               count={nPage}
               color="secondary"
@@ -75,7 +54,6 @@ function HomePage() {
                 setCurrentPage(value);
               }}
               page={currentPage}
-              style={{}}
             />
           </Stack>
         </div>

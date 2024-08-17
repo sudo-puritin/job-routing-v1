@@ -1,6 +1,7 @@
-import React, { useState, useContext } from "react";
+import { React, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import "./Login.css";
 
 import { LoadingButton } from "@mui/lab";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
@@ -11,6 +12,7 @@ import {
   IconButton,
   Alert,
 } from "@mui/material";
+
 import loginSchema from "./Login.Schema";
 import { useLoginContext } from "../../Context/Login.Context";
 import { FTextField, FormProvider, FCheckBox } from "../../Components";
@@ -30,37 +32,15 @@ const LoginPage = () => {
   });
 
   const {
-    getValues,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = methods;
-  console.log("🚀 Puritin ~ LoginPage ~ getValues:", getValues());
 
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div
-      style={{
-        maxWidth: "470px",
-        textAlign: "center",
-        background: "#818181",
-        border: "1px solid black",
-        borderRadius: "8px",
-        padding: "14px",
-        zIndex: 3,
-      }}
-    >
-      <Typography
-        variant="h3"
-        textAlign="center"
-        mb={3}
-        style={{
-          fontWeight: 600,
-          fontFamily: `"Roboto"`,
-          color: "#fff",
-          letterSpacing: "0.5rem",
-        }}
-      >
+    <div className="containerLogIn">
+      <Typography className="titleLogInBox" variant="h3" mb={3}>
         Sign In
       </Typography>
 
@@ -93,16 +73,11 @@ const LoginPage = () => {
           />
         </Stack>
 
-        <Stack
-          direction="row"
-          alignItems="center"
-          justifyContent="space-between"
-          sx={{ my: 2 }}
-        >
+        <Stack className="rememberContainer" direction="row" sx={{ my: 2 }}>
           <FCheckBox
+            className="rememberBox"
             name="remember"
             label="Remember me"
-            style={{ color: "#fff" }}
           />
         </Stack>
 

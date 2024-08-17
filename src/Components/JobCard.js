@@ -1,4 +1,5 @@
 import * as React from "react";
+import "./index.css";
 
 import {
   Card,
@@ -11,33 +12,9 @@ import {
   Box,
   Modal,
 } from "@mui/material";
+
 import LoginPage from "../Pages/LoginPage";
 import { useLoginContext } from "../Context/Login.Context";
-import zIndex from "@mui/material/styles/zIndex";
-
-const style1 = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  // zIndex: 4,
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "#fff",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
-
-const style2 = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: "470px",
-  border: "none",
-  boxShadow: 24,
-  p: 0,
-};
 
 export default function JobCard({ job }) {
   const [open, setOpen] = React.useState(false);
@@ -48,37 +25,12 @@ export default function JobCard({ job }) {
 
   return (
     <>
-      <Card
-        sx={{
-          maxWidth: 375,
-        }}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          border: "1px solid black",
-        }}
-      >
+      <Card className="jobCardWrapper">
         <CardContent>
-          <Typography
-            variant="h5"
-            component="div"
-            style={{
-              marginBottom: "8px",
-              textAlign: "center",
-            }}
-          >
+          <Typography className="jobCardContent" variant="h5" component="div">
             {job.title}
           </Typography>
-          <Stack
-            direction="row"
-            style={{
-              marginBottom: "8px",
-              display: "flex",
-              flexWrap: "wrap",
-              gap: 8,
-            }}
-          >
+          <Stack className="skillWrapper" direction="row">
             {job.skills.slice(0, 4).map((skill, index) => {
               return (
                 <Chip
@@ -95,12 +47,7 @@ export default function JobCard({ job }) {
 
           <Typography variant="body2">{job.description}</Typography>
         </CardContent>
-        <CardActions
-          style={{
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
+        <CardActions className="BtnLearnMore">
           <Button variant="contained" onClick={handleOpen}>
             Learn More
           </Button>
@@ -113,7 +60,7 @@ export default function JobCard({ job }) {
                   aria-labelledby="modal-modal-title"
                   aria-describedby="modal-modal-description"
                 >
-                  <Box sx={style1}>
+                  <Box className="style1">
                     <Typography
                       id="modal-modal-title"
                       variant="h6"
@@ -136,7 +83,7 @@ export default function JobCard({ job }) {
                   aria-labelledby="modal-modal-title"
                   aria-describedby="modal-modal-description"
                 >
-                  <Box sx={style2}>
+                  <Box className="style2">
                     <LoginPage />
                   </Box>
                 </Modal>

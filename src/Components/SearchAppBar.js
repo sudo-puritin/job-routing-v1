@@ -1,4 +1,5 @@
 import * as React from "react";
+import "./index.css";
 
 import {
   styled,
@@ -22,17 +23,6 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import SwitchUI from "./SwitchUI";
 import { useLoginContext } from "../Context/Login.Context";
 import LoginPage from "../Pages/LoginPage";
-
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: "470px",
-  border: "none",
-  boxShadow: 24,
-  p: 0,
-};
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -136,7 +126,7 @@ export default function SearchAppBar({ setModeUI }) {
         <Box sx={{ flexGrow: 1 }}>
           <AppBar position="static">
             <Toolbar>
-              <div style={{ display: "flex", flexWrap: "nowrap" }}>
+              <div className="appBarTitle">
                 <Typography
                   variant="h6"
                   noWrap
@@ -163,13 +153,8 @@ export default function SearchAppBar({ setModeUI }) {
 
               <AccountCircleIcon />
               <Typography
+                className="userInformation"
                 sx={{ display: { xs: "none", sm: "block" } }}
-                style={{
-                  paddingLeft: 8,
-                  paddingRight: 8,
-                  fontSize: 14,
-                  fontWeight: 600,
-                }}
               >
                 {userData.email}
               </Typography>
@@ -187,7 +172,7 @@ export default function SearchAppBar({ setModeUI }) {
                   }}
                   color="inherit"
                 >
-                  <p style={{ paddingRight: 8, fontSize: 14 }}>Sign out</p>
+                  <p className="textSignOut">Sign out</p>
                   <LogoutIcon />
                 </IconButton>
               </Box>
@@ -203,7 +188,7 @@ export default function SearchAppBar({ setModeUI }) {
                   }}
                   color="inherit"
                 >
-                  <p style={{ paddingRight: 8, fontSize: 14 }}>Sign out</p>
+                  <p className="textSignOut">Sign out</p>
                   <LogoutIcon />
                 </IconButton>
               </Box>
@@ -216,7 +201,7 @@ export default function SearchAppBar({ setModeUI }) {
           <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
               <Toolbar>
-                <div style={{ display: "flex", flexWrap: "nowrap" }}>
+                <div className="appBarTitle">
                   <Typography
                     variant="h6"
                     noWrap
@@ -251,8 +236,7 @@ export default function SearchAppBar({ setModeUI }) {
                     onClick={handleOpen}
                     color="inherit"
                   >
-                    <LoginIcon />{" "}
-                    <p style={{ paddingLeft: 8, fontSize: 14 }}>Sign in</p>
+                    <LoginIcon /> <p className="textSignIn">Sign in</p>
                   </IconButton>
                 </Box>
                 <Box sx={{ display: { xs: "flex", md: "none" } }}>
@@ -265,8 +249,7 @@ export default function SearchAppBar({ setModeUI }) {
                     onClick={handleOpen}
                     color="inherit"
                   >
-                    <LoginIcon />{" "}
-                    <p style={{ paddingLeft: 8, fontSize: 14 }}>Sign in</p>
+                    <LoginIcon /> <p className="textSignIn">Sign in</p>
                   </IconButton>
                 </Box>
               </Toolbar>
@@ -280,7 +263,7 @@ export default function SearchAppBar({ setModeUI }) {
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
           >
-            <Box sx={style}>
+            <Box className="style">
               <LoginPage />
             </Box>
           </Modal>
