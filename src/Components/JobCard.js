@@ -19,6 +19,7 @@ import { useLoginContext } from "../Context/Login.Context";
 export default function JobCard({ job }) {
   const [open, setOpen] = React.useState(false);
 
+  // eslint-disable-next-line no-unused-vars
   const { setSuccess, success } = useLoginContext();
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
